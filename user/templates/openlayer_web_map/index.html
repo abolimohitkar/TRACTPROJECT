@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body></body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openlayer web map</title>
+    <link rel="stylesheet" href="./sytle.css">
+    <link rel="stylesheet" href="./libs/v6.15.1-dist/ol.css">
+</head> 
+<body>
+    <div class="grid-container">
+     <div class="grid-1">
+        <div class="sidebar">
+            <h2>BASE LAYERS</h2>
+            <input type="radio" name="baseLayerRedioButton" value="OSMStandard" checked>OSMStandard<br>
+            <input type="radio" name="baseLayerRedioButton" value="OSMHumanitarian" >OSMHumanitarian<br>
+            <input type="radio" name="baseLayerRedioButton" value="StamenTerrain" >StamenTerrain
+        </div>
+     </div>
+     <div class="grid-2">
+        <div id="js-map" class="map"></div>
+        
+     </div>
+    </div>
+    
+    <script src="./main.js"></script>
+    <script src="./libs/v6.15.1-dist/ol.js"></script>
+</body>
+</html>

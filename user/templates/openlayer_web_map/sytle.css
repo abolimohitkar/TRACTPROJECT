@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+
+}
+.body 
+    {
+        margin: 0;
+        padding: 0;
+
+
+}
+
+.map{
+    height:100vh;
+    width:100vw;
+}
+*{
+    box-sizing:boarder-box
+
+
+}
+.grid-container{
+
+display:grid;
+grid-template-columns:20vw 80vw;
+grid-template-rows:100vh;
+
+}
+
+.sidebar{
+    margin-left:15px
+}

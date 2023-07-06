@@ -1,0 +1,117 @@
+<html>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <style>
+      form{
+          border:1px solid black;
+          padding:50px 50px;
+          text-align:center;
+          width:500px;
+          height:600px;
+          margin:auto;
+          box-sizing:border-box;
+          margin-top:50px;
+          background-color:grey;
+      }
+     
+      
+    
+  </style>
+  <script>
+          function changestyle(inputelement)
+          {
+              inputelement.style.color="blue";
+              inputelement.style.background="gold";
+
+          }
+  </script>
+
+
+    <head>
+    <title>Document</title>
+    <script>
+        var xmlhttp;
+        function viewdata(){
+            var name=document.dataaddedform.name.value;
+            var password=document.dataaddedform.password.value;
+            var mobno=document.dataaddedform.mobno.value;
+            var email=document.dataaddedform.email.value;
+            var data="name="+name+"&password="+password+"& mobno="+mobno+"&email="+email;
+            xmlhttp=new XMLHttpRequest();
+            xmlhttp.onload=displaydata;
+            xmlhttp.open('get','/viewdata?'+data);
+            xmlhttp.send();
+        }
+        function displaydata(){
+            var data=xmlhttp.responseText;
+            alert("json string from server" +data)
+            var data=JSON.parse(data);
+            
+            document.dataaddedform.name.value=data.name;
+            document.dataaddedform.password.value=data.password;
+            document.dataaddedform.email.value=data.email;
+            document.dataaddedform.mobno.value=data.mobno;
+            
+
+        }
+        </script>
+</head>
+
+ <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand" href="#">TRACT GIS PORTAL</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href='#'>Home <span class="sr-only">(current)</span></a>
+      </li> <li class="nav-item active">
+        <a class="nav-link" href='#'><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/index/">GIS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/endpge/">LogOUT</a>
+      </li>
+       
+       
+
+      
+    </ul>
+  </div>
+</nav> 
+<div1>
+<h3>User can retrieve data here:</h3>
+
+  <form name="Data form"  >
+  <h3><span style="color:blue">{{message}}</span></h3><br><br>
+    
+  
+  <h5>Name:- <input type="text" name="name" placeholder="Enter name" required></h5><br><br>
+	
+	    <h5>Password :- <input type="text" name="password" placeholder="Enter Password" value=""></h5><br><br>
+		
+	<h5>Mobno :- <input type="number" name="mobno" placeholder="Enter mobno"></h5><br><br>
+	
+	<h5>Email: <input type="text" name="email" placeholder="Enter email"></h5><br><br>
+			
+	
+
+    <!-- <input type="button" value="viewdata" onclick="viewdata()"> -->
+
+    <input type="submit" value="updatedata" formaction="/updatedata">
+
+    <input type="submit" value="deletedata" formaction=" /deletedata">
+  
+    </form>
+  <!-- </div1>
+  <h5>Please click :<a href="/endpge/">LogOUT</a></h5> 
+  -->
+
+</body>
+</html>
